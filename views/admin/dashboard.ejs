@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" ng-app='mean-blog.admin'>
+<head>
+  <meta charset="utf-8">
+
+  <title>Ghost clone - admin</title>
+  <meta name="description" content="ghost clone javascript blog node.js angular.js">
+  <meta name="author" content="Connor Leech">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+
+  <link rel='stylesheet' href='/admin/css/main.css'>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div ng-include='"/admin/templates/nav.html"'></div>
+
+  <div  class='full-height container' id='main-content'>
+    <div ui-view></div>
+  </div>
+
+
+
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-route/angular-route.js"></script>
+  <script src="/bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-sanitize.js"></script>
+  <script src="https://cdn.rawgit.com/showdownjs/showdown/1.0.2/dist/showdown.min.js"></script>
+  <script type="text/javascript" src="/bower_components/tinymce/tinymce.min.js"></script>
+  <script type="text/javascript" src="/bower_components/angular-ui-tinymce/src/tinymce.js"></script>
+  <script src="/bower_components/angular-aria/angular-aria.js"></script>
+  <script src="/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/bower_components/angular-material/angular-material.js"></script>
+
+  <script src='/admin/js/lib/markdown.js'></script>
+  <script src='/admin/js/app.js'></script>
+  <script src='/admin/js/controllers.js'></script>
+  <script src='/common/modules/posts.js'></script>
+  <script src='/common/modules/settings.js'></script>
+  <script type='text/javascript'>
+    var currentUser = <%- JSON.stringify(user); %>;
+    adminApp.run(function($rootScope){
+      $rootScope.currentUser = currentUser;
+    });
+  </script>
+</body>
+</html>
